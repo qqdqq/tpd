@@ -1,0 +1,31 @@
+@page
+@model TPD.Pages.DailyReports.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DailyReport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DailyReport.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DailyReport.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DailyReport.Weather)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DailyReport.Weather.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.DailyReport.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

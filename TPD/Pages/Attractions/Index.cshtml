@@ -1,0 +1,79 @@
+@page
+@model TPD.Pages.Attractions.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+
+    @if (User.IsInRole(Constants.AttractionManagerRole) || User.IsInRole(Constants.AttractionAdministratorsRole))
+    {
+        <p>
+         <a asp-page="Create">Create New</a>
+         </p>
+    }
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Attraction[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attraction[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attraction[0].AttractionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attraction[0].Locaiton)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attraction[0].ParkInfo)
+            </th>
+            @if (User.IsInRole(Constants.AttractionManagerRole) || User.IsInRole(Constants.AttractionAdministratorsRole))
+            {
+                <th>
+                    Total Visits Today
+                </th>
+
+            }
+        <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Attraction) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttractionType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Locaiton.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParkInfo.Name)
+            </td>
+            @if (User.IsInRole(Constants.AttractionManagerRole) || User.IsInRole(Constants.AttractionAdministratorsRole))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.AttractionVisitorsList.Count)
+                </td>
+        <td>
+            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+        </td>
+            }
+
+        </tr>
+}
+    </tbody>
+</table>

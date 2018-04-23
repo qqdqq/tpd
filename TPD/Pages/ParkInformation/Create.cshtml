@@ -1,0 +1,66 @@
+@page
+@model TPD.Pages.ParkInformation.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>ParkInfo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ParkInfo.ParkHoursId" class="control-label"></label>
+                <input asp-for="ParkInfo.ParkHoursId" class="form-control" />
+                <span asp-validation-for="ParkInfo.ParkHoursId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParkInfo.Name" class="control-label"></label>
+                <input asp-for="ParkInfo.Name" class="form-control" />
+                <span asp-validation-for="ParkInfo.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParkInfo.Country" class="control-label"></label>
+                <input asp-for="ParkInfo.Country" class="form-control" />
+                <span asp-validation-for="ParkInfo.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParkInfo.State" class="control-label"></label>
+                <input asp-for="ParkInfo.State" class="form-control" />
+                <span asp-validation-for="ParkInfo.State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParkInfo.City" class="control-label"></label>
+                <input asp-for="ParkInfo.City" class="form-control" />
+                <span asp-validation-for="ParkInfo.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParkInfo.ZipCode" class="control-label"></label>
+                <input asp-for="ParkInfo.ZipCode" class="form-control" />
+                <span asp-validation-for="ParkInfo.ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParkInfo.StreetNumber" class="control-label"></label>
+                <input asp-for="ParkInfo.StreetNumber" class="form-control" />
+                <span asp-validation-for="ParkInfo.StreetNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParkInfo.StreetName" class="control-label"></label>
+                <input asp-for="ParkInfo.StreetName" class="form-control" />
+                <span asp-validation-for="ParkInfo.StreetName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+

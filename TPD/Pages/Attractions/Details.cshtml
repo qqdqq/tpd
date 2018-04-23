@@ -1,0 +1,135 @@
+@page
+@model TPD.Pages.Attractions.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Attraction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Attraction.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attraction.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attraction.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attraction.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attraction.AttractionType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attraction.AttractionType.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attraction.Locaiton)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attraction.Locaiton.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attraction.ParkInfo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attraction.ParkInfo.Name)
+        </dd>
+        @if (User.IsInRole(Constants.AttractionManagerRole) || User.IsInRole(Constants.AttractionAdministratorsRole))
+        {
+
+        <dt>
+            Total Visits
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attraction.AttractionVisitorsList.Count)
+        </dd>
+        }
+
+    </dl>
+</div>
+@if (User.IsInRole(Constants.AttractionManagerRole) || User.IsInRole(Constants.AttractionAdministratorsRole))
+{
+
+
+
+    <div>
+        <table class="table">
+            <thread>
+
+                <tr>
+                    <th>
+                        Date-Recieved
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Cost
+                    </th>
+                    <th>
+                        Date-Resolved
+                    </th>
+                </tr>
+
+
+            </thread>
+            <tbody>
+
+                @foreach (var maintenance in Model.Attraction.MaintenanceList)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelMaintenance => maintenance.DateRecieved)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelMaintenance => maintenance.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelMaintenance => maintenance.Cost)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelMaintenance => maintenance.DateResolved)
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+
+
+        </table>
+    </div>
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr><th>Visit-Date</th></tr>
+            </thead>
+            <tbody>
+                @foreach (var visitors in Model.Attraction.AttractionVisitorsList)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelVisits => visitors.VisitDate)
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+
+}
+
+
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Attraction.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

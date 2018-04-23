@@ -1,0 +1,34 @@
+@page
+@model TPD.Pages.DailyReports.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DailyReport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DailyReport.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DailyReport.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DailyReport.Weather)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DailyReport.Weather.Id)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="DailyReport.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

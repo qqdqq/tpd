@@ -1,0 +1,70 @@
+@page
+@model TPD.Pages.ParkInformation.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ParkInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkInfo.ParkHoursId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ParkInfo.ParkHoursId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkInfo.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ParkInfo.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkInfo.Country)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ParkInfo.Country)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkInfo.State)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ParkInfo.State)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkInfo.City)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ParkInfo.City)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkInfo.ZipCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ParkInfo.ZipCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkInfo.StreetNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ParkInfo.StreetNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkInfo.StreetName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ParkInfo.StreetName)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="ParkInfo.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
